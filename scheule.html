@@ -1,33 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ny-Jianah Zeigler - Schedule</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Navigation Menu (if desired) -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bio.html">Bio</a></li>
-                <li><a href="passions.html">Passions</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="resume.html">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarContainer = document.getElementById('calendar');
 
-    <!-- Main Content -->
-    <main>
-        <!-- Your Schedule Content Goes Here -->
-    </main>
+    // Sample events
+    const events = [
+        { title: 'Study', start: '2023-11-13T10:00:00', end: '2023-11-13T14:00:00' },
+        { title: 'Meeting', start: '2023-11-13T15:00:00', end: '2023-11-13T16:00:00' },
+        // Add more events as needed
+    ];
 
-    <!-- Footer (optional) -->
-    <footer>
-        <p>&copy; 2023 Ny-Jianah Zeigler</p>
-    </footer>
-</body>
-</html>
+    // Render the calendar
+    renderCalendar(calendarContainer, events);
+});
+
+function renderCalendar(container, events) {
+    // Create a simple table-based calendar
+    const table = document.createElement('table');
+    table.classList.add('calendar');
+
+    // Add header row
+    const headerRow = table.insertRow();
+    ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+        const th = document.createElement('th');
+        th.textContent = day;
+        headerRow.appendChild(th);
+    });
+
+    // Add days
+    const daysInMonth = 30; // Assuming November has 30 days
+    let dayCounter = 13; // Start from the 13th
+
+    for (let i = 0; i < 5; i++) { // Assuming 5 rows for simplicity
+        const row = table.insertRow();
+
+        for (let j = 0; j < 7; j++) {
+            const cell = row.insertCell();
+
+            if (dayCounter <= daysInMonth) {
+                cell.textContent = dayCounter;
+                dayCounter++;
+            }
+        }
+    }
+
+    container.appendChild(table);
+
+    // Add events to the calendar (you might need to adjust this part based on your calendar structure)
+    events.forEach(event => {
+        const eventElement = document.createElement('div');
+        eventElement.classList.add('event');
+        eventElement.textContent = event.title;
+
+        // Calculate the position based on the date (you might need to adjust this part)
+        const day = new Date(event.start).getDate();
+        const cell = container.querySelector(`.calendar td:nth-child(${day})`);
+        
+        if (cell) {
+            cell.appendChild(eventElement);
+        }
+    });
+}
