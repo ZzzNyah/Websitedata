@@ -10,7 +10,7 @@ Welcome to my professional portfolio! This repository contains the source code f
 
 ## About Me
 
-My name is Ny-Jianah, and this is my professional portfolio. It serves as a comprehensive overview of my passions, interests, and progress towards my career goals. Designed to appeal to finance and insurance industry professionals, it showcases my journey and aspirations.
+My name is Ny-Jianah, and this is my professional portfolio. It serves as a comprehensive overview of my passions, interests, and progress towards my career goals. Designed to appeal to sales industry professionals, it showcases my journey and aspirations.
 
 ## Professional Story
 
@@ -22,7 +22,7 @@ I excel in:
 - Drive, motivation, and negotiation
 - Effective communication and public speaking
 - Sales, presentation, and client relationship management
-- Team leadership and time management
+- Implementation
 
 My achievements include successful roles as a life insurance agent, tutor, and water consultant, where I significantly contributed to sales growth and team management.
 
